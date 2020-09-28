@@ -1,0 +1,28 @@
+disabled_rules:
+  - line_length
+  - force_cast
+  - identifier_name
+  - unused_setter_value
+  - force_try
+  - type_name
+  - todo
+  - cyclomatic_complexity
+  - opening_brace
+
+trailing_comma:
+    mandatory_comma: true
+
+enabled_rules:
+  - implicit_return
+  - unused_import
+
+file_length:
+  warning: 1000
+  error: 1600
+
+type_body_length:
+  warning: 780
+
+function_body_length:
+  warning: 60
+  error: 80  
