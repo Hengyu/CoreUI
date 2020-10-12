@@ -174,15 +174,16 @@ extension UIViewController {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.activatesEscapeKeyCommand, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-    }
-
-    open override var keyCommands: [UIKeyCommand]? {
-        if activatesEscapeKeyCommand {
-            let esc = UIKeyCommand(input: UIKeyCommand.inputEscape, modifierFlags: UIKeyModifierFlags(rawValue: 0), action: #selector(escapeKeyPressed(_:)))
-            return [esc] + (super.keyCommands ?? [])
-        } else {
-            return super.keyCommands
+            if activatesEscapeKeyCommand {
+                let esc = UIKeyCommand(input: UIKeyCommand.inputEscape, modifierFlags: UIKeyModifierFlags(rawValue: 0), action: #selector(escapeKeyPressed(_:)))
+                addKeyCommand(esc)
+            } else {
+                if let command = keyCommands?.first(
+                    where: { $0.action == #selector(escapeKeyPressed(_:)) && $0.input == UIKeyCommand.inputEscape }
+                ) {
+                    removeKeyCommand(command)
+                }
+            }
         }
     }
 
