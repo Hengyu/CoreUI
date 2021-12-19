@@ -12,7 +12,7 @@ disabled_rules:
 trailing_comma:
     mandatory_comma: true
 
-enabled_rules:
+opt_in_rules:
   - implicit_return
   - unused_import
 
