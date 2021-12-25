@@ -31,6 +31,7 @@ extension StandardButtonStyle {
 public final class StandardButton: UIButton {
 
     private let style: StandardButtonStyle
+    private var _canBecomeFocused: Bool = false
 
     public var text: String? {
         get { title(for: .normal) }
@@ -45,6 +46,10 @@ public final class StandardButton: UIButton {
     public var image: UIImage? {
         get { image(for: .normal) }
         set { setImage(newValue, for: .normal) }
+    }
+
+    public override var canBecomeFocused: Bool {
+        _canBecomeFocused
     }
 
     public override init(frame: CGRect) {
@@ -63,6 +68,10 @@ public final class StandardButton: UIButton {
         self.style = style
         super.init(frame: .zero)
         commonInit()
+    }
+
+    public func setCanBecomeFocused(_ focused: Bool) {
+        _canBecomeFocused = focused
     }
 
     private func commonInit() {

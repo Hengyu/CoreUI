@@ -7,8 +7,16 @@
 
 import UIKit
 
+// MARK: - RoundedButton
+
 @IBDesignable
 public final class RoundedButton: UIButton {
+
+    private var _canBecomeFocused: Bool = false
+
+    public func setCanBecomeFocused(_ focused: Bool) {
+        _canBecomeFocused = focused
+    }
 
     @IBInspectable
     public var cornerRadius: CGFloat = 0 {
@@ -30,5 +38,9 @@ public final class RoundedButton: UIButton {
             size.width += 2 * cornerRadius
         }
         return size
+    }
+
+    public override var canBecomeFocused: Bool {
+        _canBecomeFocused
     }
 }
