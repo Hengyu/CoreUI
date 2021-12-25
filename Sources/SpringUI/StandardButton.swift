@@ -26,6 +26,13 @@ public struct StandardButtonStyle {
 
 extension StandardButtonStyle {
     public static let standard: StandardButtonStyle = .init()
+
+    public static let disabled: StandardButtonStyle = {
+        var style: StandardButtonStyle = .standard
+        style.textColor = .systemGray
+        style.enablePressAnimation = false
+        return style
+    }()
 }
 
 public final class StandardButton: UIButton {
