@@ -74,6 +74,14 @@ public final class StandardButton: UIButton {
         _canBecomeFocused = focused
     }
 
+    public func applyStyle(_ style: StandardButtonStyle) {
+        contentEdgeInsets = style.contentInset
+        layer.cornerRadius = style.cornerRadius
+        backgroundColor = style.backgroundColor
+        titleLabel?.font = style.textFont
+        textColor = style.textColor
+    }
+
     private func commonInit() {
         applyStyle(style)
         setupActionHandlers()
@@ -82,14 +90,6 @@ public final class StandardButton: UIButton {
     private func setupActionHandlers() {
         addTarget(self, action: #selector(didUnhighlight(_:)), for: [.touchUpInside, .touchDragExit, .touchUpOutside, .touchCancel])
         addTarget(self, action: #selector(didHighlight(_:)), for: [.touchDragEnter, .touchDown])
-    }
-
-    private func applyStyle(_ style: StandardButtonStyle) {
-        contentEdgeInsets = style.contentInset
-        layer.cornerRadius = style.cornerRadius
-        backgroundColor = style.backgroundColor
-        titleLabel?.font = style.textFont
-        textColor = style.textColor
     }
 
     @objc
