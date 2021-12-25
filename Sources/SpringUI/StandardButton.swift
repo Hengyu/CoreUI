@@ -11,6 +11,24 @@ import AutumnUI
 #endif
 import UIKit
 
+// MARK: - StandardButtonContent
+
+public struct StandardButtonContent: Equatable, Hashable {
+    public let text: String?
+    public let image: UIImage?
+    public let accessibilityLabel: String?
+    public let accessibilityHint: String?
+
+    public init(text: String?, image: UIImage?, accessibilityLabel: String?, accessibilityHint: String?) {
+        self.text = text
+        self.image = image
+        self.accessibilityLabel = accessibilityLabel
+        self.accessibilityHint = accessibilityHint
+    }
+}
+
+// MARK: - StandardButtonStyle
+
 public struct StandardButtonStyle {
     public var contentInset: UIEdgeInsets = .init(top: 12, left: 12, bottom: 12, right: 12)
     public var cornerRadius: CGFloat = 12
@@ -30,10 +48,14 @@ extension StandardButtonStyle {
     public static let disabled: StandardButtonStyle = {
         var style: StandardButtonStyle = .standard
         style.textColor = .systemGray
+        #if canImport(AutumnUI)
         style.enablePressAnimation = false
+        #endif
         return style
     }()
 }
+
+// MARK: - StandardButton
 
 public final class StandardButton: UIButton {
 
@@ -115,6 +137,20 @@ public final class StandardButton: UIButton {
             animatePressUp()
         }
         #endif
+    }
+}
+
+extension StandardButton {
+
+    public var content: StandardButtonContent {
+        .init(text: text, image: image, accessibilityLabel: accessibilityLabel, accessibilityHint: accessibilityHint)
+    }
+
+    public func setContent(_ content: StandardButtonContent) {
+        text = content.text
+        image = content.image
+        accessibilityLabel = content.accessibilityLabel
+        accessibilityHint = content.accessibilityHint
     }
 }
 
