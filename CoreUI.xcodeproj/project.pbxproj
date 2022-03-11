@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		190831B72513CFC700FB46A3 /* StandardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190831B62513CFC700FB46A3 /* StandardButton.swift */; };
-		191A130E248E58EE00EA3CF2 /* CoreUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 191A1306248E58EE00EA3CF2 /* CoreUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		191A131A248E599600EA3CF2 /* SeasonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191A12EF248E58BA00EA3CF2 /* SeasonUI.framework */; };
 		191A1323248E59B200EA3CF2 /* CoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A1321248E59B100EA3CF2 /* CoreUITests.swift */; };
 		19948EB524EA5FD200131D05 /* NSLayoutConstraint+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19948EB324EA5FD200131D05 /* NSLayoutConstraint+UIView.swift */; };
@@ -39,7 +38,6 @@
 /* Begin PBXFileReference section */
 		190831B62513CFC700FB46A3 /* StandardButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardButton.swift; sourceTree = "<group>"; };
 		191A12EF248E58BA00EA3CF2 /* SeasonUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SeasonUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		191A1306248E58EE00EA3CF2 /* CoreUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreUI.h; sourceTree = "<group>"; };
 		191A1307248E58EE00EA3CF2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		191A1315248E599600EA3CF2 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		191A1319248E599600EA3CF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 			children = (
 				19FDFC8C24E94BA600211848 /* AutumnUI */,
 				19FDFC9D24E94F8400211848 /* SpringUI */,
-				191A1306248E58EE00EA3CF2 /* CoreUI.h */,
 				191A1307248E58EE00EA3CF2 /* Info.plist */,
 			);
 			path = Sources;
@@ -207,7 +204,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				191A130E248E58EE00EA3CF2 /* CoreUI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
