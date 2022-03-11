@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "191A12EE248E58BA00EA3CF2"
-               BuildableName = "CoreUI.framework"
-               BlueprintName = "CoreUI"
+               BuildableName = "SeasonUI.framework"
+               BlueprintName = "SeasonUI"
                ReferencedContainer = "container:CoreUI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -61,8 +61,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "191A12EE248E58BA00EA3CF2"
-            BuildableName = "CoreUI.framework"
-            BlueprintName = "CoreUI"
+            BuildableName = "SeasonUI.framework"
+            BlueprintName = "SeasonUI"
             ReferencedContainer = "container:CoreUI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

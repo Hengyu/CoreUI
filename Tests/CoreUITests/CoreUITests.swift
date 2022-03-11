@@ -1,6 +1,6 @@
 import XCTest
-#if canImport(CoreUI)
-@testable import CoreUI
+#if canImport(SeasonUI)
+@testable import SeasonUI
 #else
 @testable import AutumnUI
 @testable import SpringUI
