@@ -1,5 +1,10 @@
 import XCTest
+#if canImport(CoreUI)
+@testable import CoreUI
+#else
 @testable import AutumnUI
+@testable import SpringUI
+#endif
 
 final class CoreUITests: XCTestCase {
     func testExample() {
