@@ -11,7 +11,6 @@
 		191A130E248E58EE00EA3CF2 /* CoreUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 191A1306248E58EE00EA3CF2 /* CoreUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		191A131A248E599600EA3CF2 /* CoreUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191A12EF248E58BA00EA3CF2 /* CoreUI.framework */; };
 		191A1323248E59B200EA3CF2 /* CoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A1321248E59B100EA3CF2 /* CoreUITests.swift */; };
-		191A1324248E59B200EA3CF2 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A1322248E59B100EA3CF2 /* XCTestManifests.swift */; };
 		19948EB524EA5FD200131D05 /* NSLayoutConstraint+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19948EB324EA5FD200131D05 /* NSLayoutConstraint+UIView.swift */; };
 		19948EB624EA5FD200131D05 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19948EB424EA5FD200131D05 /* NSLayoutConstraint.swift */; };
 		19F5719824F2D82F009E3EE5 /* Motion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F5719624F2D82F009E3EE5 /* Motion.swift */; };
@@ -45,7 +44,6 @@
 		191A1315248E599600EA3CF2 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		191A1319248E599600EA3CF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		191A1321248E59B100EA3CF2 /* CoreUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreUITests.swift; sourceTree = "<group>"; };
-		191A1322248E59B100EA3CF2 /* XCTestManifests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		19948EB324EA5FD200131D05 /* NSLayoutConstraint+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+UIView.swift"; sourceTree = "<group>"; };
 		19948EB424EA5FD200131D05 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
 		19F5719624F2D82F009E3EE5 /* Motion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Motion.swift; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				191A1321248E59B100EA3CF2 /* CoreUITests.swift */,
-				191A1322248E59B100EA3CF2 /* XCTestManifests.swift */,
 			);
 			path = CoreUITests;
 			sourceTree = "<group>";
@@ -375,7 +372,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				191A1323248E59B200EA3CF2 /* CoreUITests.swift in Sources */,
-				191A1324248E59B200EA3CF2 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
