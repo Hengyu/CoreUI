@@ -176,6 +176,9 @@ extension UIViewController {
             objc_setAssociatedObject(self, &AssociatedKeys.activatesEscapeKeyCommand, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             if activatesEscapeKeyCommand {
                 let esc = UIKeyCommand(input: UIKeyCommand.inputEscape, modifierFlags: UIKeyModifierFlags(rawValue: 0), action: #selector(escapeKeyPressed(_:)))
+                if #available(iOS 15.0, macCatalyst 15.0, tvOS 15.0, *) {
+                    esc.wantsPriorityOverSystemBehavior = true
+                }
                 addKeyCommand(esc)
             } else {
                 if let command = keyCommands?.first(
