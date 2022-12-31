@@ -9,12 +9,14 @@ disabled_rules:
   - cyclomatic_complexity
   - opening_brace
 
+analyzer_rules:
+  - unused_import
+
 trailing_comma:
     mandatory_comma: true
 
 opt_in_rules:
   - implicit_return
-  - unused_import
 
 file_length:
   warning: 1000
