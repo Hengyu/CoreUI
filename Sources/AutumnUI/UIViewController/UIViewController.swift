@@ -62,23 +62,17 @@ extension UINavigationController {
         case .regular:
             setNavigationBarHidden(false, animated: false)
             #if os(iOS) || os(OSX)
-            if #available(iOS 11.0, *) {
-                navigationBar.prefersLargeTitles = true
-            }
+            navigationBar.prefersLargeTitles = true
             #endif
         case .hidden:
             setNavigationBarHidden(true, animated: false)
             #if os(iOS) || os(OSX)
-            if #available(iOS 11.0, *) {
-                navigationBar.prefersLargeTitles = false
-            }
+            navigationBar.prefersLargeTitles = false
             #endif
         default:
             setNavigationBarHidden(false, animated: false)
             #if os(iOS) || os(OSX)
-            if #available(iOS 11.0, *) {
-                navigationBar.prefersLargeTitles = false
-            }
+            navigationBar.prefersLargeTitles = false
             #endif
         }
     }
@@ -89,9 +83,7 @@ extension UIViewController {
     @MainActor
     public func setNavigationLargeTitleEnabled(_ enabled: Bool) {
         #if os(iOS) || os(OSX)
-        if #available(iOS 11.0, *) {
-            navigationItem.largeTitleDisplayMode = enabled ? .always : .never
-        }
+        navigationItem.largeTitleDisplayMode = enabled ? .always : .never
         #endif
     }
 }
@@ -121,41 +113,29 @@ extension UIViewController {
 
     @MainActor
     public func setNeedsUpdateLayoutMargins() {
-        if #available(iOS 11.0, tvOS 11.0, *) {
-            if let navigationController {
-//                navigationController.navigationBar.directionalLayoutMargins.leading = horizontalMargin
-//                navigationController.navigationBar.directionalLayoutMargins.trailing = horizontalMargin
-                var navDirectionalMargins = navigationController.navigationBar.directionalLayoutMargins
-                navDirectionalMargins.leading = horizontalMargin
-                navDirectionalMargins.trailing = horizontalMargin
-                navigationController.navigationBar.directionalLayoutMargins = navDirectionalMargins
-            }
-
-//            view?.directionalLayoutMargins.leading = horizontalMargin
-//            view?.directionalLayoutMargins.trailing = horizontalMargin
-
-            // TL;DR: The code above may leads UI inconsistency, so we commented it.
-
-            // If we set each components of the view's `directionalMargins` separately,
-            // an UI inconsistency may occur if the willSet value is smaller than
-            // the corresponding component of the `safeAreaInsets`.
-            // E.g., For iPhone X, the value for bottom component of its `safeAreaInsets` is 106,
-            // and this value is identical for `directionalLayoutMargins`'s bottom component.
-            // If we do `view.directionalLayoutMargins.bottom = x`,
-            // x is some value smaller than 106,
-            // this line of code will have no effects.
-            // We may fix this by setting `self.viewRespectsSystemMinimumLayoutMargins` to `false`.
-
-            var directionalMargins = view.directionalLayoutMargins
-            directionalMargins.leading = horizontalMargin
-            directionalMargins.trailing = horizontalMargin
-            view.directionalLayoutMargins = directionalMargins
-        } else {
-            // Before iOS 11, the large title display mode was not introduced.
-            // So we do not need to take care of the `navigationController.navigationBar`
-            view?.layoutMargins.left = horizontalMargin
-            view?.layoutMargins.right = horizontalMargin
+        if let navigationController {
+            var navDirectionalMargins = navigationController.navigationBar.directionalLayoutMargins
+            navDirectionalMargins.leading = horizontalMargin
+            navDirectionalMargins.trailing = horizontalMargin
+            navigationController.navigationBar.directionalLayoutMargins = navDirectionalMargins
         }
+
+        // TL;DR: The code above may leads UI inconsistency, so we commented it.
+
+        // If we set each components of the view's `directionalMargins` separately,
+        // an UI inconsistency may occur if the willSet value is smaller than
+        // the corresponding component of the `safeAreaInsets`.
+        // E.g., For iPhone X, the value for bottom component of its `safeAreaInsets` is 106,
+        // and this value is identical for `directionalLayoutMargins`'s bottom component.
+        // If we do `view.directionalLayoutMargins.bottom = x`,
+        // x is some value smaller than 106,
+        // this line of code will have no effects.
+        // We may fix this by setting `self.viewRespectsSystemMinimumLayoutMargins` to `false`.
+
+        var directionalMargins = view.directionalLayoutMargins
+        directionalMargins.leading = horizontalMargin
+        directionalMargins.trailing = horizontalMargin
+        view.directionalLayoutMargins = directionalMargins
     }
 
     func populateLayoutMarginsIfNeeded() {

@@ -45,9 +45,7 @@ public final class NilContentView: UIView {
             label.textColor = .darkGray
         }
         label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
-        if #available(iOS 10.0, tvOS 10.0, *) {
-            label.adjustsFontForContentSizeCategory = true
-        }
+        label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         addSubview(label)

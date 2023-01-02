@@ -40,11 +40,7 @@ extension UIColor {
         UIColor(red: 213/255.0, green: 172/255.0, blue: 59/255.0, alpha: 1)
     }
     public class var meditation: UIColor {
-        if #available(iOS 11.0, tvOS 11.0, *) {
-            return UIColor(named: "meditation") ?? UIColor(red: 245/255.0, green: 247/255.0, blue: 251/255.0, alpha: 1)
-        } else {
-            return UIColor(red: 245/255.0, green: 247/255.0, blue: 251/255.0, alpha: 1)
-        }
+        UIColor(red: 245/255.0, green: 247/255.0, blue: 251/255.0, alpha: 1)
     }
     public class var defaultBackground: UIColor {
         #if os(tvOS)
