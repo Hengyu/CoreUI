@@ -2,15 +2,18 @@
 
 `CoreUI` package contains several targets for dedicated UI purposes.
 
-Currently, we have two targets, they are:
-1. AutumnUI;
-2. SpringUI;
+**AutumnUI** includes a set of utility extensions of `UIKit`.
 
-## AutumnUI
+**SpringUI** includes a set of generic UI components.
 
-Contains a set of utility extensions of `UIKit`.
+## Installation
 
-## SpringUI
+`CoreUI` could be installed via [Swift Package Manager](https://www.swift.org/package-manager/). Open Xcode and go to **File** -> **Add Packages...**, search `https://github.com/hengyu/CoreUI.git`, and add the package as one of your project's dependency.
 
-Constains a set of generic UI components. 
-Some of them may derived from trending codebase implemented by other creators.
+## License
+
+Migration is released under the [MIT License][LICENSE].
+
+## Acknowledgements
+
+[GradientView](https://github.com/Hengyu/Toast) in `SpringUI` is origniated from the [Gradient-View](https://github.com/matvdg/Gradient-View) by [Mathieu Vandeginste](https://github.com/matvdg).
