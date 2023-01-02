@@ -10,10 +10,10 @@ import UIKit
 extension UIView {
 
     public func animatePressDown() {
-        if let state = pressDownState {
-            state.animator.isReversed = false
-        } else if let state = pressUpState {
-            state.animator.isReversed = true
+        if let pressDownState {
+            pressDownState.animator.isReversed = false
+        } else if let pressUpState {
+            pressUpState.animator.isReversed = true
         } else {
             animate(
                 duration: Motion.Duration.systemHighlight,
@@ -25,14 +25,14 @@ extension UIView {
     }
 
     public func animatePressUp() {
-        if let state = pressDownState {
-            if state.animator.fractionComplete < 0.01 {
-                state.autoreverse = true
+        if let pressDownState {
+            if pressDownState.animator.fractionComplete < 0.01 {
+                pressDownState.autoreverse = true
             } else {
-                state.animator.isReversed = true
+                pressDownState.animator.isReversed = true
             }
-        } else if let state = pressUpState {
-            state.animator.isReversed = false
+        } else if let pressUpState {
+            pressUpState.animator.isReversed = false
         } else {
             animate(
                 duration: Motion.Duration.systemHighlight,
@@ -70,7 +70,7 @@ extension UIView {
         let animator = UIViewPropertyAnimator(duration: duration, curve: curve, animations: animations)
         self[keyPath: keyPath] = AnimatorState(animator: animator)
         animator.addCompletion { [weak self] position in
-            guard let self = self, let state = self[keyPath: keyPath] else { return }
+            guard let self, let state = self[keyPath: keyPath] else { return }
 
             self[keyPath: keyPath] = nil
 

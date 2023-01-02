@@ -80,7 +80,7 @@ public final class ActionTableViewCell: UITableViewCell, TitleConfigurable {
     }
 
     private func updateTitleText(hasUnderline: Bool) {
-        guard let _titleText = _titleText else {
+        guard let _titleText else {
             textLabel?.text = nil
             textLabel?.attributedText = nil
             return

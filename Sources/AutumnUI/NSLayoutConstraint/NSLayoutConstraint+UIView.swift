@@ -15,7 +15,7 @@ extension UIView {
         priority: UILayoutPriority = .required,
         shouldActivate: Bool = true) -> [NSLayoutConstraint.Attribute: NSLayoutConstraint]
     {
-        guard let superview = superview else {
+        guard let superview else {
             assertionFailure("The view does not have a superview and cannot be constrainted")
             return [:]
         }
@@ -30,7 +30,7 @@ extension UIView {
         priority: UILayoutPriority = .required,
         shouldActivate: Bool = true) -> NSLayoutConstraint
     {
-        guard let superview = superview else {
+        guard let superview else {
             assertionFailure("The view does not have a superview and cannot be constrainted")
             return NSLayoutConstraint()
         }

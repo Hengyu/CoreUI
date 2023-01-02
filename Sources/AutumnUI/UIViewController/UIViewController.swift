@@ -111,7 +111,7 @@ extension UIViewController {
 
     public func setNeedsUpdateLayoutMargins() {
         if #available(iOS 11.0, tvOS 11.0, *) {
-            if let navigationController = navigationController {
+            if let navigationController {
 //                navigationController.navigationBar.directionalLayoutMargins.leading = horizontalMargin
 //                navigationController.navigationBar.directionalLayoutMargins.trailing = horizontalMargin
                 var navDirectionalMargins = navigationController.navigationBar.directionalLayoutMargins
@@ -191,11 +191,11 @@ extension UIViewController {
     }
 
     public func removeFromPresentingStack(animated: Bool = true) {
-        if let nav = navigationController {
-            if nav.viewControllers.first !== self {
-                nav.popViewController(animated: animated)
+        if let navigationController {
+            if navigationController.viewControllers.first !== self {
+                navigationController.popViewController(animated: animated)
             } else {
-                nav.presentingViewController?.dismiss(animated: animated, completion: nil)
+                navigationController.presentingViewController?.dismiss(animated: animated, completion: nil)
             }
         } else {
             presentingViewController?.dismiss(animated: animated, completion: nil)
