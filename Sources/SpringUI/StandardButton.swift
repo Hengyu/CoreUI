@@ -13,7 +13,7 @@ import UIKit
 
 // MARK: - StandardButtonContent
 
-public struct StandardButtonContent: Equatable, Hashable {
+public struct StandardButtonContent: Equatable, Hashable, Sendable {
     public let text: String?
     public let image: UIImage?
     public let accessibilityLabel: String?
@@ -29,7 +29,7 @@ public struct StandardButtonContent: Equatable, Hashable {
 
 // MARK: - StandardButtonStyle
 
-public struct StandardButtonStyle {
+public struct StandardButtonStyle: Equatable, Sendable {
     public var contentInset: UIEdgeInsets = .init(top: 12, left: 12, bottom: 12, right: 12)
     public var cornerRadius: CGFloat = 12
     public var backgroundColor: UIColor = .actionBackground
@@ -142,10 +142,12 @@ public final class StandardButton: UIButton {
 
 extension StandardButton {
 
+    @MainActor
     public var content: StandardButtonContent {
         .init(text: text, image: image, accessibilityLabel: accessibilityLabel, accessibilityHint: accessibilityHint)
     }
 
+    @MainActor
     public func setContent(_ content: StandardButtonContent) {
         text = content.text
         image = content.image

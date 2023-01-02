@@ -10,7 +10,7 @@ import UIKit
 
 extension UITableViewController {
 
-    public enum CompatibleStyle {
+    public enum CompatibleStyle: Sendable {
         case insetGrouped
         case grouped
         case plain
@@ -35,6 +35,7 @@ extension UITableViewController {
         }
     }
 
+    @MainActor
     public convenience init(compatibleStyle: CompatibleStyle) {
         self.init(style: compatibleStyle.style)
     }

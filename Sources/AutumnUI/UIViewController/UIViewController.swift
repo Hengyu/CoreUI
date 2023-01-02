@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - Layout information
 
-public enum UIOrientation {
+public enum UIOrientation: Codable, CaseIterable, Equatable, Sendable {
     case portrait
     case landscape
 
@@ -21,9 +21,13 @@ public enum UIOrientation {
             self = .portrait
         }
     }
+
+    public static var allCases: [UIOrientation] {
+        [.portrait, .landscape]
+    }
 }
 
-public struct UILayoutInformation {
+public struct UILayoutInformation: Equatable, Sendable {
     public var orientation: UIOrientation
     public var traitCollection: UITraitCollection {
         get { _traitCollection }
@@ -40,14 +44,19 @@ public struct UILayoutInformation {
 
 // MARK: - Navigation bar
 
-public enum UINavigationBarStyle {
+public enum UINavigationBarStyle: CaseIterable, Codable, Equatable, Sendable {
     case regular
     case compact
     case hidden
+
+    public static var allCases: [UINavigationBarStyle] {
+        [.regular, .compact, .hidden]
+    }
 }
 
 extension UINavigationController {
 
+    @MainActor
     public func setNavigationBarStyle(_ style: UINavigationBarStyle) {
         switch style {
         case .regular:
@@ -77,6 +86,7 @@ extension UINavigationController {
 
 extension UIViewController {
 
+    @MainActor
     public func setNavigationLargeTitleEnabled(_ enabled: Bool) {
         #if os(iOS) || os(OSX)
         if #available(iOS 11.0, *) {
@@ -109,6 +119,7 @@ extension UIViewController {
         }
     }
 
+    @MainActor
     public func setNeedsUpdateLayoutMargins() {
         if #available(iOS 11.0, tvOS 11.0, *) {
             if let navigationController {

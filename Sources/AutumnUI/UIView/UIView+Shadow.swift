@@ -7,7 +7,7 @@
 
 import UIKit
 
-public struct ShadowStyle {
+public struct ShadowStyle: Equatable, Sendable {
     public let color: UIColor
     public let radius: CGFloat
     public let opacity: Float
@@ -21,12 +21,14 @@ extension ShadowStyle {
 
 extension UIView {
 
+    @MainActor
     public func applyShadowStyle(_ style: ShadowStyle) {
         layer.shadowColor = style.color.cgColor
         layer.shadowRadius = style.radius
         layer.shadowOpacity = style.opacity
     }
 
+    @MainActor
     public func removeShadowStyle() {
         applyShadowStyle(.noShadow)
     }

@@ -9,6 +9,7 @@ import UIKit
 
 extension UIView {
 
+    @MainActor
     public func animatePressDown() {
         if let pressDownState {
             pressDownState.animator.isReversed = false
@@ -24,6 +25,7 @@ extension UIView {
         }
     }
 
+    @MainActor
     public func animatePressUp() {
         if let pressDownState {
             if pressDownState.animator.fractionComplete < 0.01 {
@@ -43,6 +45,7 @@ extension UIView {
     }
 
     @nonobjc
+    @MainActor
     public func applyPressed(_ pressed: Bool) {
         transform = pressed ? .init(scaleX: 0.95, y: 0.95) : .identity
     }

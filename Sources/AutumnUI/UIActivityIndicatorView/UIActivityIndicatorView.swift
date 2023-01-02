@@ -10,11 +10,16 @@ import UIKit.UIActivityIndicatorView
 
 extension UIActivityIndicatorView {
 
-    public enum UniStyle {
+    public enum UniStyle: CaseIterable, Equatable, Sendable {
         case compact
         case regular
+
+        public static var allCases: [UIActivityIndicatorView.UniStyle] {
+            [.compact, .regular]
+        }
     }
 
+    @MainActor
     public convenience init(uniStyle: UniStyle) {
         if #available(iOS 13.0, macCatalyst 13.0, tvOS 13.0, *) {
             if uniStyle == .compact {

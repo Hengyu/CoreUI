@@ -10,6 +10,7 @@ import UIKit
 extension UIView {
 
     @discardableResult
+    @MainActor
     public func constrainToSuperview(
         anchors: Set<NSLayoutConstraint.Attribute> = [.top, .leading, .bottom, .trailing],
         priority: UILayoutPriority = .required,
@@ -25,6 +26,7 @@ extension UIView {
     }
 
     @discardableResult
+    @MainActor
     public func constrainToSuperview(
         anchor: NSLayoutConstraint.Attribute,
         priority: UILayoutPriority = .required,
@@ -40,6 +42,7 @@ extension UIView {
     }
 
     @discardableResult
+    @MainActor
     public func constrain(
         to view: UIView,
         anchor: NSLayoutConstraint.Attribute,
@@ -55,6 +58,7 @@ extension UIView {
     }
 
     @discardableResult
+    @MainActor
     public func constrain(
         to view: UIView,
         anchors: Set<NSLayoutConstraint.Attribute> = [.top, .leading, .bottom, .trailing],
