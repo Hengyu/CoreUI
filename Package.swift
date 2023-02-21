@@ -7,6 +7,7 @@ let package = Package(
     name: "CoreUI",
     platforms: [
         .iOS(.v11),
+        .macCatalyst(.v13),
         .tvOS(.v11),
     ],
     products: [
