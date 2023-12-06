@@ -1,14 +1,3 @@
-disabled_rules:
-  - line_length
-  - force_cast
-  - identifier_name
-  - unused_setter_value
-  - force_try
-  - type_name
-  - todo
-  - cyclomatic_complexity
-  - opening_brace
-
 analyzer_rules:
   - unused_import
 
@@ -17,6 +6,14 @@ trailing_comma:
 
 opt_in_rules:
   - implicit_return
+  - let_var_whitespace
+  - multiline_arguments
+  - multiline_arguments_brackets
+  - multiline_function_chains
+  - multiline_literal_brackets
+  - multiline_parameters
+  - multiline_parameters_brackets
+  - sorted_imports
 
 file_length:
   warning: 1000

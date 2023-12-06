@@ -39,7 +39,8 @@ extension UIView {
                 curve: .easeOut,
                 keyPath: \.pressDownState,
                 animations: { self.applyPressed(true) },
-                reverse: { self.animatePressUp() })
+                reverse: { self.animatePressUp() }
+            )
         }
     }
 
@@ -58,7 +59,8 @@ extension UIView {
                 duration: Motion.Duration.systemHighlight,
                 curve: .easeIn,
                 keyPath: \.pressUpState,
-                animations: { self.applyPressed(false) })
+                animations: { self.applyPressed(false) }
+            )
         }
     }
 
@@ -86,8 +88,8 @@ extension UIView {
         curve: UIView.AnimationCurve,
         keyPath: ReferenceWritableKeyPath<UIView, AnimatorState?>,
         animations: @escaping () -> Void,
-        reverse: (() -> Void)? = nil)
-    {
+        reverse: (() -> Void)? = nil
+    ) {
         let animator = UIViewPropertyAnimator(duration: duration, curve: curve, animations: animations)
         self[keyPath: keyPath] = AnimatorState(animator: animator)
         animator.addCompletion { [weak self] position in
@@ -106,10 +108,12 @@ extension UIView {
 
 // MARK: - Keys
 
+// swiftlint:disable identifier_name
 private enum Keys {
     static var down: Int = 0
     static var up: Int = 0
 }
+// swiftlint:enable identifier_name
 
 // MARK: - AnimatorState
 

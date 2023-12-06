@@ -124,21 +124,26 @@ extension UIColor {
     ///
     /// - Parameter rgbValue: The hex value of a color.
     convenience init(rgbValue: Int) {
-        self.init(red: CGFloat((rgbValue & 0xFF0000) >> 16)/255.0, green: CGFloat((rgbValue & 0xFF00) >> 8)/255.0, blue: CGFloat(rgbValue & 0xFF)/255.0, alpha: 1)
+        self.init(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16)/255.0,
+            green: CGFloat((rgbValue & 0xFF00) >> 8)/255.0,
+            blue: CGFloat(rgbValue & 0xFF)/255.0,
+            alpha: 1
+        )
     }
 
-    /**
-     Convenience initializer.
-     
-     - parameter r: Red value.
-     - parameter g: Green value.
-     - parameter b: Blue value.
-     
-     - returns: Color with r, g, b while alpha is 1.
-     */
+    // swiftlint:disable identifier_name
+
+    /// Create a color with given r, g, b while alpha is 1.
+    /// - Parameters:
+    ///   - r: Red value.
+    ///   - g: Green value.
+    ///   - b: Blue value.
     public convenience init(r: Int, g: Int, b: Int) {
         self.init(red: CGFloat(r)/255.0, green: CGFloat(g)/255.0, blue: CGFloat(b)/255.0, alpha: 1.0)
     }
+
+    // swiftlint:enable identifier_name
 
     /**
      UIColor to hex string.

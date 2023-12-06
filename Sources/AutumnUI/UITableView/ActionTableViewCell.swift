@@ -32,9 +32,9 @@ public protocol TitleConfigurable: AnyObject {
 public final class ActionTableViewCell: UITableViewCell, TitleConfigurable {
 
     public var titleText: String? {
-        get { _titleText }
+        get { internalTitleText }
         set {
-            _titleText = newValue
+            internalTitleText = newValue
             if #available(iOS 14.0, macCatalyst 14.0, tvOS 14.0, *) {
                 updateTitleText(hasUnderline: UIAccessibility.buttonShapesEnabled)
             } else {
@@ -58,11 +58,11 @@ public final class ActionTableViewCell: UITableViewCell, TitleConfigurable {
     }
 
     public override var accessibilityLabel: String? {
-        get { _titleText }
+        get { internalTitleText }
         set { _ = newValue }
     }
 
-    private var _titleText: String?
+    private var internalTitleText: String?
 
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
@@ -97,7 +97,7 @@ public final class ActionTableViewCell: UITableViewCell, TitleConfigurable {
     }
 
     private func updateTitleText(hasUnderline: Bool) {
-        guard let _titleText else {
+        guard let internalTitleText else {
             textLabel?.text = nil
             textLabel?.attributedText = nil
             return
@@ -106,12 +106,12 @@ public final class ActionTableViewCell: UITableViewCell, TitleConfigurable {
         if hasUnderline {
             textLabel?.text = nil
             textLabel?.attributedText = NSAttributedString(
-                string: _titleText,
+                string: internalTitleText,
                 attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue]
             )
         } else {
             textLabel?.attributedText = nil
-            textLabel?.text = _titleText
+            textLabel?.text = internalTitleText
         }
     }
 }

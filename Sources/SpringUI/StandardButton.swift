@@ -134,8 +134,16 @@ public final class StandardButton: UIButton {
     }
 
     private func setupActionHandlers() {
-        addTarget(self, action: #selector(didUnhighlight(_:)), for: [.touchUpInside, .touchDragExit, .touchUpOutside, .touchCancel])
-        addTarget(self, action: #selector(didHighlight(_:)), for: [.touchDragEnter, .touchDown])
+        addTarget(
+            self,
+            action: #selector(didUnhighlight(_:)),
+            for: [.touchUpInside, .touchDragExit, .touchUpOutside, .touchCancel]
+        )
+        addTarget(
+            self,
+            action: #selector(didHighlight(_:)),
+            for: [.touchDragEnter, .touchDown]
+        )
     }
 
     @objc

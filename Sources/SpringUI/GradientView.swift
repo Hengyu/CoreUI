@@ -28,9 +28,11 @@ import UIKit
 @IBDesignable
 public final class GradientView: UIView {
 
+    // swiftlint:disable force_cast
     private var gradientLayer: CAGradientLayer {
         layer as! CAGradientLayer
     }
+    // swiftlint:enable force_cast
 
     @IBInspectable
     public var topColor: UIColor = .red {

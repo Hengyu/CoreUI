@@ -32,8 +32,8 @@ extension UIView {
     public func constrainToSuperview(
         anchors: Set<NSLayoutConstraint.Attribute> = [.top, .leading, .bottom, .trailing],
         priority: UILayoutPriority = .required,
-        shouldActivate: Bool = true) -> [NSLayoutConstraint.Attribute: NSLayoutConstraint]
-    {
+        shouldActivate: Bool = true
+    ) -> [NSLayoutConstraint.Attribute: NSLayoutConstraint] {
         guard let superview else {
             assertionFailure("The view does not have a superview and cannot be constrainted")
             return [:]
@@ -48,8 +48,8 @@ extension UIView {
     public func constrainToSuperview(
         anchor: NSLayoutConstraint.Attribute,
         priority: UILayoutPriority = .required,
-        shouldActivate: Bool = true) -> NSLayoutConstraint
-    {
+        shouldActivate: Bool = true
+    ) -> NSLayoutConstraint {
         guard let superview else {
             assertionFailure("The view does not have a superview and cannot be constrainted")
             return NSLayoutConstraint()
@@ -65,8 +65,8 @@ extension UIView {
         to view: UIView,
         anchor: NSLayoutConstraint.Attribute,
         priority: UILayoutPriority = .required,
-        shouldActivate: Bool = true) -> NSLayoutConstraint
-    {
+        shouldActivate: Bool = true
+    ) -> NSLayoutConstraint {
         let result = constrain(to: view, anchors: [anchor], priority: priority, shouldActivate: shouldActivate)
         guard let constraint = result[anchor] else {
             assertionFailure("Expected to have a constraint related to anchor \(anchor)")
@@ -81,9 +81,12 @@ extension UIView {
         to view: UIView,
         anchors: Set<NSLayoutConstraint.Attribute> = [.top, .leading, .bottom, .trailing],
         priority: UILayoutPriority = .required,
-        shouldActivate: Bool = true) -> [NSLayoutConstraint.Attribute: NSLayoutConstraint]
-    {
-        assert(!anchors.contains(.notAnAttribute), "Cannot setup a constraint between two attributes of type `.notAnAttribute`")
+        shouldActivate: Bool = true
+    ) -> [NSLayoutConstraint.Attribute: NSLayoutConstraint] {
+        assert(
+            !anchors.contains(.notAnAttribute),
+            "Cannot setup a constraint between two attributes of type `.notAnAttribute`"
+        )
 
         let initialValue: [NSLayoutConstraint.Attribute: NSLayoutConstraint] = [:]
         let constraints = anchors.reduce(initialValue) { result, anchor in
@@ -95,7 +98,8 @@ extension UIView {
                 toItem: view,
                 attribute: anchor,
                 multiplier: 1,
-                constant: 0)
+                constant: 0
+            )
             constraint.priority = priority
             result[anchor] = constraint
             return result

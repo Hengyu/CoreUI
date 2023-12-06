@@ -67,14 +67,12 @@ public final class NilContentView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         addSubview(label)
 
-        let cons0 = NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0)
-        let cons1 = NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: -50)
-        let cons2 = NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 100)
-        let cons3 = NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 100)
-        let cons4 = NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0)
-        let cons5 = NSLayoutConstraint(item: label, attribute: .top, relatedBy: .equal, toItem: imageView, attribute: .bottom, multiplier: 1, constant: 10)
-        let cons6 = NSLayoutConstraint(item: label, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 0.8, constant: 0)
-
-        NSLayoutConstraint.activate([cons0, cons1, cons2, cons3, cons4, cons5, cons6])
+        imageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -50).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        label.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10).isActive = true
+        label.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8).isActive = true
     }
 }
