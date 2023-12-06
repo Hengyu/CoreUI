@@ -178,15 +178,15 @@ extension UIViewController {
 
     public var activatesEscapeKeyCommand: Bool {
         get {
-            objc_getAssociatedObject(self, &AssociatedKeys.activatesEscapeKeyCommand) as? Bool ?? false
+            withUnsafePointer(to: &AssociatedKeys.activatesEscapeKeyCommand) {
+                objc_getAssociatedObject(self, $0) as? Bool ?? false
+            }
         }
         set {
-            objc_setAssociatedObject(
-                self,
-                &AssociatedKeys.activatesEscapeKeyCommand,
-                newValue,
-                .OBJC_ASSOCIATION_RETAIN_NONATOMIC
-            )
+            withUnsafePointer(to: &AssociatedKeys.activatesEscapeKeyCommand) {
+                objc_setAssociatedObject(self, $0, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            }
+
             if activatesEscapeKeyCommand {
                 let esc = UIKeyCommand(
                     input: UIKeyCommand.inputEscape,
