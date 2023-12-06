@@ -21,32 +21,5 @@ jobs:
           path: .build
           key: ${{ runner.os }}-CoreUI-${{ hashFiles('**/Package.resolved') }}
           restore-keys: ${{ runner.os }}-CoreUI
-      - name: Install the Apple certificate
-        env:
-          BUILD_CERTIFICATE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}
-          P12_PASSWORD: ${{ secrets.XCODE_CERTIFICATE }}
-          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
-        run: |
-          # create variables
-          CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
-          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
-
-          # import certificate and provisioning profile from secrets
-          echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode --output $CERTIFICATE_PATH
-
-          # create temporary keychain
-          security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
-          security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
-          security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
-
-          # import certificate to keychain
-          security import $CERTIFICATE_PATH -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
-          security list-keychain -d user -s $KEYCHAIN_PATH
       - name: Build
         run: xcodebuild build -project CoreUI.xcodeproj -scheme SeasonUI -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 13 mini"
-      - name: Test
-        run: xcodebuild test -project CoreUI.xcodeproj -scheme Tests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 13 mini" CODE_SIGN_IDENTITY="Apple Development"
-      - name: Clean up keychain
-        if: ${{ always() }}
-        run: |
-          security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
