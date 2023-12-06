@@ -1,8 +1,9 @@
 # CoreUI
 
-![](https://img.shields.io/badge/iOS-11.0%2B-green)
+![](https://img.shields.io/badge/iOS-13.0%2B-green)
 ![](https://img.shields.io/badge/macCatalyst-13.0%2B-green)
-![](https://img.shields.io/badge/tvOS-11.0%2B-green)
+![](https://img.shields.io/badge/tvOS-13.0%2B-green)
+![](https://img.shields.io/badge/visionOS-1.0%2B-green)
 ![](https://img.shields.io/badge/Swift-5-orange?logo=Swift&logoColor=white)
 ![](https://img.shields.io/github/last-commit/hengyu/CoreUI)
 
@@ -21,7 +22,7 @@
 
 ## Requirements
 
-- iOS 11.0+, macCatalyst 13.0+, tvOS 11.0+
+- iOS 13.0+, macCatalyst 13.0+, tvOS 13.0+, visionOS 1.0+
 
 ## Installation
 
