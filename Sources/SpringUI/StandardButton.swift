@@ -184,18 +184,10 @@ extension StandardButton {
 extension UIColor {
 
     fileprivate class var actionBackground: UIColor {
-        if #available(iOS 13.0, tvOS 13.0, *) {
-            #if os(tvOS)
-            return .separator
-            #else
-            return .tertiarySystemGroupedBackground
-            #endif
-        } else {
-            #if os(tvOS)
-            return .systemGray
-            #else
-            return .groupTableViewBackground
-            #endif
-        }
+        #if os(tvOS)
+        .separator
+        #else
+        .tertiarySystemGroupedBackground
+        #endif
     }
 }

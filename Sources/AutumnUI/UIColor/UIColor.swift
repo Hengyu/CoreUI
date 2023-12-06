@@ -61,62 +61,38 @@ extension UIColor {
     }
     public class var defaultBackground: UIColor {
         #if os(tvOS)
-        return .clear
+        .clear
         #else
-        if #available(iOS 13.0, tvOS 13.0, *) {
-            return .systemBackground
-        } else {
-            return .white
-        }
+        .systemBackground
         #endif
     }
     public class var defaultTableViewBackground: UIColor {
-        if #available(iOS 13.0, tvOS 13.0, *) {
-            #if os(tvOS)
-            return .separator
-            #else
-            return .systemGroupedBackground
-            #endif
-        } else {
-            return .meditation
-        }
+        #if os(tvOS)
+        .separator
+        #else
+        .systemGroupedBackground
+        #endif
     }
     public class var defaultCellSeparatorColor: UIColor {
-        if #available(iOS 13.0, tvOS 13.0, *) {
-            #if os(tvOS)
-            return .separator
-            #else
-            return .systemGroupedBackground
-            #endif
-        } else {
-            #if os(tvOS)
-            return .systemGray
-            #else
-            return .groupTableViewBackground
-            #endif
-        }
+        #if os(tvOS)
+        .separator
+        #else
+        .systemGroupedBackground
+        #endif
     }
     public class var defaultIndicator: UIColor {
-        if #available(iOS 13.0, tvOS 13.0, *) {
-            #if os(tvOS)
-            return .separator
-            #else
-            return .systemBackground
-            #endif
-        } else {
-            return .white
-        }
+        #if os(tvOS)
+        .separator
+        #else
+        .systemBackground
+        #endif
     }
 
     public class var defaultSecondaryLabel: UIColor {
         #if os(tvOS)
-        if #available(tvOS 13.0, *) {
-            return .secondaryLabel
-        } else {
-            return .darkGray
-        }
+        .secondaryLabel
         #else
-        return .darkGray
+        .darkGray
         #endif
     }
 

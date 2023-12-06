@@ -38,11 +38,7 @@ extension UITableViewController {
                 #if os(tvOS)
                 fallthrough
                 #else
-                if #available(iOS 13.0, macCatalyst 13.0, *) {
-                    return .insetGrouped
-                } else {
-                    fallthrough
-                }
+                return .insetGrouped
                 #endif
             case .grouped:
                 return .grouped

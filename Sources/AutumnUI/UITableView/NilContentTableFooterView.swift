@@ -56,11 +56,7 @@ public final class NilContentView: UIView {
         addSubview(imageView)
 
         label.textAlignment = .center
-        if #available(iOS 13.0, macCatalyst 13.0, tvOS 13.0, *) {
-            label.textColor = .systemGray
-        } else {
-            label.textColor = .darkGray
-        }
+        label.textColor = .systemGray
         label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
         label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0

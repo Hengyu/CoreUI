@@ -38,18 +38,10 @@ extension UIActivityIndicatorView {
 
     @MainActor
     public convenience init(uniStyle: UniStyle) {
-        if #available(iOS 13.0, macCatalyst 13.0, tvOS 13.0, *) {
-            if uniStyle == .compact {
-                self.init(style: .medium)
-            } else {
-                self.init(style: .large)
-            }
+        if uniStyle == .compact {
+            self.init(style: .medium)
         } else {
-            if uniStyle == .compact {
-                self.init(style: .white)
-            } else {
-                self.init(style: .whiteLarge)
-            }
+            self.init(style: .large)
         }
     }
 }
