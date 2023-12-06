@@ -6,9 +6,9 @@ import PackageDescription
 let package = Package(
     name: "CoreUI",
     platforms: [
-        .iOS(.v11),
+        .iOS(.v13),
         .macCatalyst(.v13),
-        .tvOS(.v11),
+        .tvOS(.v13),
     ],
     products: [
         .library(name: "AutumnUI", targets: ["AutumnUI"]),
